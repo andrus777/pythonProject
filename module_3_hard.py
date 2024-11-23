@@ -1,7 +1,7 @@
 def calculate_structure_sum(args):
     res = 0
     for arg in args:
-        if isinstance(arg, int):
+        if isinstance(arg, (int, float)):
             res = res + arg
         if isinstance(arg, str):
             res = res + len(arg)

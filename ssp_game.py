@@ -64,6 +64,7 @@ def user_select(item, label): # в этой функции отображает�
     bot_item = bot_select()
     win_result = who_is_win(item, bot_item)
     result_win['text'] = win_result
+    global current_score
     score_current['text'] = current_score
 
 
