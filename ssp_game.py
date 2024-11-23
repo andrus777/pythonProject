@@ -64,25 +64,22 @@ def user_select(item, label): # в этой функции отображает�
     bot_item = bot_select()
     win_result = who_is_win(item, bot_item)
     result_win['text'] = win_result
-    global current_score
-    score_current['text'] = current_score
 
 
 def who_is_win(user_sel, bot_sel): # в этой функции происходит проверка победителя и начисление очков за выигрыш победителю
-    global current_score
     if user_sel == bot_sel:
         return 'Ничья!'
     elif ((user_sel == 'камень' and bot_sel == 'ножницы') or
           (user_sel == 'ножницы' and bot_sel == 'бумага') or
           (user_sel == 'бумага' and bot_sel == 'камень')):
         score.update({'Игрок': score.get('Игрок') + 1})
-        current_score = f'Текущий счет: {score}'
+        score_current['text']= f'Текущий счет: {score}'
         return 'Победил Игрок!!!'
     elif ((user_sel == 'камень' and bot_sel == 'бумага') or
           (user_sel == 'ножницы' and bot_sel == 'камень') or
           (user_sel == 'бумага' and bot_sel == 'ножницы')):
         score.update({'Бот': score.get('Бот') + 1})
-        current_score = f'Текущий счет: {score}'
+        score_current['text'] = f'Текущий счет: {score}'
         return 'Победил Бот!'
 
 def play(): # запуск игрового процесса сначала
